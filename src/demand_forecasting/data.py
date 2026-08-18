@@ -55,12 +55,18 @@ def generate_synthetic_demand(days: int = 90, seed: int = 42) -> pd.DataFrame:
                 + 0.25 * historical_requests_1h
                 + rng.normal(0, 2.0),
             )
+            hour_angle = 2 * np.pi * hour / 24
+            day_angle = 2 * np.pi * weekday / 7
             rows.append(
                 {
                     "timestamp": timestamp,
                     "zone": zone,
                     "hour": hour,
                     "day_of_week": weekday,
+                    "hour_sin": round(float(np.sin(hour_angle)), 6),
+                    "hour_cos": round(float(np.cos(hour_angle)), 6),
+                    "day_of_week_sin": round(float(np.sin(day_angle)), 6),
+                    "day_of_week_cos": round(float(np.cos(day_angle)), 6),
                     "is_weekend": int(weekend),
                     "rainfall_mm": round(rain_mm, 3),
                     "temperature_c": round(temperature_c, 3),
