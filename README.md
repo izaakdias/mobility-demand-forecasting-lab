@@ -31,7 +31,8 @@ The default model is a `RandomForestRegressor` wrapped in a preprocessing pipeli
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m src.demand_forecasting.train
+pip install -e .
+python -m demand_forecasting.train
 ```
 
 Run the test suite:
@@ -43,7 +44,7 @@ pytest
 Generate a larger experiment:
 
 ```bash
-python -m src.demand_forecasting.train --days 180 --seed 7
+python -m demand_forecasting.train --days 180 --seed 7
 ```
 
 The benchmark is synthetic and should be treated as a demonstration of engineering and modeling workflow, not as a production performance claim.
