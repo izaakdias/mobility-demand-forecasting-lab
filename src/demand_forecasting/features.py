@@ -9,8 +9,10 @@ from sklearn.preprocessing import OneHotEncoder
 
 
 NUMERIC_FEATURES = [
-    "hour",
-    "day_of_week",
+    "hour_sin",
+    "hour_cos",
+    "day_of_week_sin",
+    "day_of_week_cos",
     "is_weekend",
     "rainfall_mm",
     "temperature_c",
